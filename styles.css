@@ -19,10 +19,20 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  background-color: #ff4b2b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #ff5e45;
 }
 
 #resultado {
   margin-top: 20px;
   font-size: 20px;
   font-weight: bold;
+  color: #fff;
+  text-align: center;
 }
