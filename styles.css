@@ -23,7 +23,7 @@ h1 {
 .roleta {
   display: flex;
   height: 100%;
-  width: 900px;
+  width: 600px; /* largura ajustada */
   transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
@@ -40,15 +40,6 @@ h1 {
 .T { background-color: red; }
 .CT { background-color: blue; }
 .Dado { background-color: gold; color: black; }
-
-.ponteiro {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px;
-  color: yellow;
-}
 
 button {
   padding: 10px 20px;
