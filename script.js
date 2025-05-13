@@ -6,7 +6,7 @@ function girarRoleta() {
 
   let resultado = "";
 
-  // Verifica a zona do número gerado
+  // Verifica a zona do número gerado e define o resultado
   if (numero < 45) {
     resultado = "🔴 Terrorista (T)";
   } else if (numero < 90) {
@@ -15,6 +15,6 @@ function girarRoleta() {
     resultado = "🟡 Dado";
   }
 
-  // Atualiza o conteúdo com o resultado
+  // Atualiza o conteúdo com o resultado abaixo da roleta
   resultadoEl.textContent = "Resultado: " + resultado;
 }
