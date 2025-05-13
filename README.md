@@ -12,7 +12,7 @@ Este projeto é uma recriação simples da roleta usada no site CSGOEmpire, feit
 
 1. **Faz o download do repositório** ou clona com:
    ```bash
-   git clone https://github.com/teu-utilizador/csgoempire-roleta.git
+   git clone https://github.com/teu-utilizador/csgoempire2.git
    ```
 
 2. **Abre o ficheiro `index.html` no navegador**:
