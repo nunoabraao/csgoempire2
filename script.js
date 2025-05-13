@@ -13,7 +13,7 @@ function girarRoleta() {
     resultado = "Dado";
   }
 
-  const opcoes = ["T", "CT", "Dado", "T", "CT", "Dado", "T", "CT", "Dado"];
+  const opcoes = ["T", "CT", "Dado", "T", "CT", "Dado"];
   const indices = opcoes.map((v, i) => v === resultado ? i : -1).filter(i => i !== -1);
   const indiceEscolhido = indices[Math.floor(Math.random() * indices.length)];
   const deslocamento = indiceEscolhido * 100;
