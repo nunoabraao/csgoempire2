@@ -10,13 +10,44 @@ h1 {
   margin-bottom: 20px;
 }
 
-.roleta {
+.roleta-container {
+  position: relative;
   width: 300px;
   height: 50px;
   margin: 0 auto 20px;
-  background: linear-gradient(to right, red 45%, yellow 10%, blue 45%);
+  overflow: hidden;
   border: 2px solid #000;
   border-radius: 10px;
+}
+
+.roleta {
+  display: flex;
+  height: 100%;
+  width: 900px;
+  transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.slot {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.T { background-color: red; }
+.CT { background-color: blue; }
+.Dado { background-color: gold; color: black; }
+
+.ponteiro {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: yellow;
 }
 
 button {
