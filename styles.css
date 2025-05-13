@@ -1,0 +1,63 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 40px;
+}
+
+.roleta-wrapper {
+  width: 600px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: #222;
+}
+
+.roleta {
+  display: flex;
+  height: 100px;
+  transition: transform 5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+.t { background-color: #e53935; }
+.ct { background-color: #1e88e5; }
+.dado { background-color: #fdd835; color: #000; }
+
+.ponteiro {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 100%;
+  background-color: white;
+  z-index: 2;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
