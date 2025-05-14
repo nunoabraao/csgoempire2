@@ -1,0 +1,98 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-color: #0f0f0f;
+  color: #fff;
+  padding-top: 40px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.roleta-wrapper {
+  position: relative;
+  width: 500px;
+  height: 60px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #1c1c1c;
+}
+
+.roleta {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  transition: transform 1.8s ease-out;
+}
+
+.slot {
+  width: 60px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  border-right: 1px solid #222;
+  color: white;
+}
+
+.T { background-color: red; }
+.CT { background-color: blue; }
+.Dado { background-color: limegreen; color: black; }
+
+.ponteiro {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background-color: white;
+  transform: translateX(-50%);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff4b2b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff6347;
+}
+
+.resultado {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.historico-wrapper {
+  margin-top: 30px;
+}
+
+.historico {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.bola {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.bola.T { background-color: red; }
+.bola.CT { background-color: blue; }
+.bola.Dado { background-color: limegreen; }
