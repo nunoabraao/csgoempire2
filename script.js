@@ -2,38 +2,36 @@ function girarRoleta() {
   const roleta = document.getElementById("roleta");
   const resultadoEl = document.getElementById("resultado");
 
-  // Limpar roleta
+  // Limpa roleta
   roleta.innerHTML = "";
 
-  // Criar sequência de slots
-  const slots = [];
-  for (let i = 0; i < 50; i++) {
+  const tipos = [];
+
+  // Gera 100 slots com % iguais à CSGOEmpire (45% T, 45% CT, 10% Dado)
+  for (let i = 0; i < 100; i++) {
     const num = Math.random() * 100;
-    let tipo = "";
-    if (num < 45) tipo = "T";
-    else if (num < 90) tipo = "CT";
-    else tipo = "Dado";
-    slots.push(tipo);
+    if (num < 45) tipos.push("T");
+    else if (num < 90) tipos.push("CT");
+    else tipos.push("Dado");
   }
 
-  // Adicionar elementos à roleta
-  slots.forEach(tipo => {
+  // Cria elementos na roleta
+  tipos.forEach(tipo => {
     const div = document.createElement("div");
     div.className = `slot ${tipo}`;
     div.textContent = tipo;
     roleta.appendChild(div);
   });
 
-  // Escolher posição aleatória para parar
-  const stopIndex = Math.floor(Math.random() * (slots.length - 7)) + 3;
-  const deslocamento = stopIndex * 60 - 200; // Ajuste para centralizar
+  // Escolhe posição de paragem
+  const stopIndex = Math.floor(Math.random() * (tipos.length - 7)) + 3;
+  const deslocamento = stopIndex * 60 - 200;
 
-  // Aplicar rotação com animação
-  roleta.style.transition = "transform 3s ease-out";
+  // Gira a roleta
+  roleta.style.transition = "transform 1.5s ease-out";
   roleta.style.transform = `translateX(-${deslocamento}px)`;
 
-  // Mostrar resultado após a animação
-  const tipoFinal = slots[stopIndex];
+  const tipoFinal = tipos[stopIndex];
   const texto =
     tipoFinal === "T" ? "🔴 Terrorista (T)" :
     tipoFinal === "CT" ? "🔵 Counter-Terrorista (CT)" :
@@ -41,5 +39,5 @@ function girarRoleta() {
 
   setTimeout(() => {
     resultadoEl.textContent = "Resultado: " + texto;
-  }, 3100);
+  }, 1600);
 }
