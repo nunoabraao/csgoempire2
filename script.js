@@ -2,26 +2,44 @@ function girarRoleta() {
   const roleta = document.getElementById("roleta");
   const resultadoEl = document.getElementById("resultado");
 
-  const numero = Math.random() * 100;
-  let resultado = "";
+  // Limpar roleta
+  roleta.innerHTML = "";
 
-  if (numero < 45) {
-    resultado = "T";
-  } else if (numero < 90) {
-    resultado = "CT";
-  } else {
-    resultado = "Dado";
+  // Criar sequência de slots
+  const slots = [];
+  for (let i = 0; i < 50; i++) {
+    const num = Math.random() * 100;
+    let tipo = "";
+    if (num < 45) tipo = "T";
+    else if (num < 90) tipo = "CT";
+    else tipo = "Dado";
+    slots.push(tipo);
   }
 
-  const opcoes = ["T", "CT", "Dado", "T", "CT", "Dado"];
-  const indices = opcoes.map((v, i) => v === resultado ? i : -1).filter(i => i !== -1);
-  const indiceEscolhido = indices[Math.floor(Math.random() * indices.length)];
-  const deslocamento = indiceEscolhido * 100;
+  // Adicionar elementos à roleta
+  slots.forEach(tipo => {
+    const div = document.createElement("div");
+    div.className = `slot ${tipo}`;
+    div.textContent = tipo;
+    roleta.appendChild(div);
+  });
 
+  // Escolher posição aleatória para parar
+  const stopIndex = Math.floor(Math.random() * (slots.length - 7)) + 3;
+  const deslocamento = stopIndex * 60 - 200; // Ajuste para centralizar
+
+  // Aplicar rotação com animação
+  roleta.style.transition = "transform 3s ease-out";
   roleta.style.transform = `translateX(-${deslocamento}px)`;
 
-  resultadoEl.textContent = "Resultado: " + 
-    (resultado === "T" ? "🔴 Terrorista (T)" :
-     resultado === "CT" ? "🔵 Counter-Terrorista (CT)" :
-     "🟡 Dado");
+  // Mostrar resultado após a animação
+  const tipoFinal = slots[stopIndex];
+  const texto =
+    tipoFinal === "T" ? "🔴 Terrorista (T)" :
+    tipoFinal === "CT" ? "🔵 Counter-Terrorista (CT)" :
+    "🟡 Dado";
+
+  setTimeout(() => {
+    resultadoEl.textContent = "Resultado: " + texto;
+  }, 3100);
 }
