@@ -16,27 +16,27 @@ h1 {
   height: 60px;
   margin: 0 auto 20px;
   overflow: hidden;
+  background-color: #222;
   border: 2px solid #000;
   border-radius: 10px;
-  background-color: #222;
 }
 
 .roleta {
   display: flex;
   height: 100%;
   width: max-content;
-  transition: transform 1s ease-out;
+  transition: transform 0.9s ease-out;
 }
 
 .slot {
   width: 60px;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-weight: bold;
   font-size: 18px;
-  color: #fff;
+  color: white;
 }
 
 .T { background-color: red; }
@@ -47,7 +47,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 2px;
+  width: 4px;
   height: 100%;
   background-color: white;
   transform: translateX(-50%);
@@ -72,10 +72,6 @@ button:hover {
   margin-top: 20px;
   font-size: 20px;
   font-weight: bold;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  display: inline-block;
 }
 
 .historico-wrapper {
@@ -85,7 +81,7 @@ button:hover {
 .historico {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   flex-wrap: wrap;
   max-width: 400px;
   margin: 0 auto;
