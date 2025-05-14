@@ -5,31 +5,29 @@ function girarRoleta() {
   const resultadoEl = document.getElementById("resultado");
   const historicoEl = document.getElementById("historico");
 
-  // Limpa roleta
+  // Limpar roleta
   roleta.innerHTML = "";
 
+  // Gerar 100 slots aleatórios
   const tipos = [];
-
-  // Gera 100 blocos
   for (let i = 0; i < 100; i++) {
-    const num = Math.random() * 100;
-    if (num < 45) tipos.push("T");
-    else if (num < 90) tipos.push("CT");
+    const rand = Math.random() * 100;
+    if (rand < 45) tipos.push("T");
+    else if (rand < 90) tipos.push("CT");
     else tipos.push("Dado");
   }
 
   tipos.forEach(tipo => {
-    const div = document.createElement("div");
-    div.className = `slot ${tipo}`;
-    div.textContent = tipo;
-    roleta.appendChild(div);
+    const slot = document.createElement("div");
+    slot.className = `slot ${tipo}`;
+    slot.textContent = tipo;
+    roleta.appendChild(slot);
   });
 
-  // Posição aleatória de paragem
+  // Calcular paragem aleatória no meio da tela
   const stopIndex = Math.floor(Math.random() * (tipos.length - 7)) + 3;
   const deslocamento = stopIndex * 60 - 200;
 
-  roleta.style.transition = "transform 1s ease-out";
   roleta.style.transform = `translateX(-${deslocamento}px)`;
 
   const tipoFinal = tipos[stopIndex];
@@ -51,5 +49,5 @@ function girarRoleta() {
       b.className = `bola ${tipo}`;
       historicoEl.appendChild(b);
     });
-  }, 1100);
+  }, 950);
 }
