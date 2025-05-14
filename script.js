@@ -28,7 +28,7 @@ function girarRoleta() {
   const deslocamento = stopIndex * 60 - 200;
 
   // Gira a roleta
-  roleta.style.transition = "transform 1.5s ease-out";
+  roleta.style.transition = "transform 7.5s ease-out";
   roleta.style.transform = `translateX(-${deslocamento}px)`;
 
   const tipoFinal = tipos[stopIndex];
