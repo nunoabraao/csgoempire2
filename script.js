@@ -5,10 +5,8 @@ function girarRoleta() {
   const resultadoEl = document.getElementById("resultado");
   const historicoEl = document.getElementById("historico");
 
-  // Limpar roleta
   roleta.innerHTML = "";
 
-  // Gerar 100 slots aleatórios
   const tipos = [];
   for (let i = 0; i < 100; i++) {
     const rand = Math.random() * 100;
@@ -24,9 +22,10 @@ function girarRoleta() {
     roleta.appendChild(slot);
   });
 
-  // Calcular paragem aleatória no meio da tela
   const stopIndex = Math.floor(Math.random() * (tipos.length - 7)) + 3;
-  const deslocamento = stopIndex * 60 - 200;
+  const offsetCenter = 200;
+  const randomOffset = Math.floor(Math.random() * 60) - 30; // -30 a +30 px
+  const deslocamento = stopIndex * 60 - offsetCenter + randomOffset;
 
   roleta.style.transform = `translateX(-${deslocamento}px)`;
 
@@ -34,12 +33,11 @@ function girarRoleta() {
   const texto =
     tipoFinal === "T" ? "🔴 Terrorista (T)" :
     tipoFinal === "CT" ? "🔵 Counter-Terrorista (CT)" :
-    "🟡 Dado";
+    "🟢 Dado";
 
   setTimeout(() => {
     resultadoEl.textContent = "Resultado: " + texto;
 
-    // Atualizar histórico (últimos 20)
     historico.unshift(tipoFinal);
     if (historico.length > 20) historico.pop();
 
@@ -49,5 +47,5 @@ function girarRoleta() {
       b.className = `bola ${tipo}`;
       historicoEl.appendChild(b);
     });
-  }, 950);
+  }, 1550);
 }
