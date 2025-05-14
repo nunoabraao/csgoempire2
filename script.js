@@ -1,13 +1,16 @@
+let historico = [];
+
 function girarRoleta() {
   const roleta = document.getElementById("roleta");
   const resultadoEl = document.getElementById("resultado");
+  const historicoEl = document.getElementById("historico");
 
   // Limpa roleta
   roleta.innerHTML = "";
 
   const tipos = [];
 
-  // Gera 100 slots com % iguais à CSGOEmpire (45% T, 45% CT, 10% Dado)
+  // Gera 100 blocos
   for (let i = 0; i < 100; i++) {
     const num = Math.random() * 100;
     if (num < 45) tipos.push("T");
@@ -15,7 +18,6 @@ function girarRoleta() {
     else tipos.push("Dado");
   }
 
-  // Cria elementos na roleta
   tipos.forEach(tipo => {
     const div = document.createElement("div");
     div.className = `slot ${tipo}`;
@@ -23,12 +25,11 @@ function girarRoleta() {
     roleta.appendChild(div);
   });
 
-  // Escolhe posição de paragem
+  // Posição aleatória de paragem
   const stopIndex = Math.floor(Math.random() * (tipos.length - 7)) + 3;
   const deslocamento = stopIndex * 60 - 200;
 
-  // Gira a roleta
-  roleta.style.transition = "transform 7.5s ease-out";
+  roleta.style.transition = "transform 1s ease-out";
   roleta.style.transform = `translateX(-${deslocamento}px)`;
 
   const tipoFinal = tipos[stopIndex];
@@ -39,5 +40,16 @@ function girarRoleta() {
 
   setTimeout(() => {
     resultadoEl.textContent = "Resultado: " + texto;
-  }, 1600);
+
+    // Atualizar histórico (últimos 20)
+    historico.unshift(tipoFinal);
+    if (historico.length > 20) historico.pop();
+
+    historicoEl.innerHTML = "";
+    historico.forEach(tipo => {
+      const b = document.createElement("div");
+      b.className = `bola ${tipo}`;
+      historicoEl.appendChild(b);
+    });
+  }, 1100);
 }
